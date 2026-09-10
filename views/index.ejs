@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8">
+  <title>Alp Eren'in Blogu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Alp Eren'in Blogu</h1>
+    <p>Sambo Kitaplar ve Seyahatlerim Üzerine Notlar</p>
+  </header>
+   <div class="bolumler"></div>
+      <section id="sambo">
+    <h2><i class="fa-solid fa-people-wrestling"></i> Sambo</h2>
+       <% sambo.forEach(function(yazi) { %>
+      <article>
+        <h3><%= yazi.baslik %></h3>
+        <% if (yazi.resim) { %>
+          <img src="<%= yazi.resim %>" alt="<%= yazi.baslik %>" class="kapak-foto">
+        <% } %>
+        <p><%= yazi.metin %></p>
+      </article>
+    <% }); %>
+  </section>
+
+     <section id="kitaplar">
+    <h2><i class="fa-solid fa-book-open"></i> Kitaplar</h2>
+       <% kitaplar.forEach(function(kategori) { %>
+      <article>
+        <h3><%= kategori.kategori %></h3>
+       <% if (kategori.resim) { %>
+  <img src="<%= kategori.resim %>" alt="<%= kategori.kategori %>" class="kapak-foto">
+<% } %>
+        <p><%= kategori.metin %></p>
+        <ul>
+          <% kategori.liste.forEach(function(kitap) { %>
+            <li><%= kitap %></li>
+          <% }); %>
+        </ul>
+      </article>
+    <% }); %>
+   
+     
+
+  </section>
+
+  
+
+   <section id="seyahat">
+    <h2>✈️ Seyahatlerim</h2>
+
+        <% seyahat.forEach(function(yazi) { %>
+      <article>
+        <h3><%= yazi.baslik %></h3>
+        <% if (yazi.resim) { %>
+          <img src="<%= yazi.resim %>" alt="<%= yazi.baslik %>" class="kapak-foto">
+        <% } %>
+        <p><%= yazi.metin %></p>
+      </article>
+    <% }); %>
+
+  </section>
+
+</body>
+</html>
