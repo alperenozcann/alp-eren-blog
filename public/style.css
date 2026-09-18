@@ -3,8 +3,8 @@ body {
   max-width: 700px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #e9edf2;
-  color: #222;
+  background-color: #4a4e54;
+  color: #e8e8e8;
 }
 
 header {
@@ -119,4 +119,154 @@ article:hover {
   .bolumler {
     grid-template-columns: 1fr;
   }
+}
+article {
+  background-color: #d8dde5;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 25px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+/* Bölüm başlıklarına tema renkleri */
+#sambo h2 {
+  color: #c0392b;
+  border-bottom-color: #c0392b;
+}
+
+#kitaplar h2 {
+  color: #b892e8;
+  border-bottom-color: #b892e8;
+}
+
+#seyahat h2 {
+  color: #1a9e96;
+  border-bottom-color: #1a9e96;
+}
+
+/* Article başlıklarına (h3) da hafif renk geçsin */
+#sambo article h3 {
+  color: #c0392b;
+}
+
+#kitaplar article h3 {
+  color: #6c3fa8;
+}
+
+#seyahat article h3 {
+  color: #1a9e96;
+}
+/* Görselleri çarpıcı hale getir */
+article img {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border: 3px solid #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+article img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+/* Kart içindeki yazılar koyu kalsın (beyaz zemin üzerinde okunaklı olsun) */
+article,
+article p,
+article li {
+  color: #222;
+}
+/* Başlıklara özgün font */
+header h1,
+section h2,
+article h3 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.5px;
+}
+
+section h2 {
+  font-size: 1.8rem;
+}
+
+article h3 {
+  font-size: 1.3rem;
+}
+/* Sayfa açılırken yumuşak belirme efekti */
+body {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Kartlar sırayla, hafif gecikmeli belirsin */
+article {
+  animation: slideUp 0.6s ease-out backwards;
+}
+
+article:nth-of-type(1) { animation-delay: 0.1s; }
+article:nth-of-type(2) { animation-delay: 0.2s; }
+article:nth-of-type(3) { animation-delay: 0.3s; }
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Linklere yumuşak geçiş */
+a {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+/* Başa dön butonu */
+#basaDon {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #4a6fa5, #2c3e50);
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease;
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none;
+}
+
+#basaDon.gorunur {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#basaDon:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
 }
